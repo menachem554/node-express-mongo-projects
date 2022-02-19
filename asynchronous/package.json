@@ -1,0 +1,21 @@
+{
+  "name": "asynchronous",
+  "version": "1.0.0",
+  "description": "The differences between asynchronous functions like callback and promis",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/menachem554/node-express-mongo-projects/asychronous"
+  },
+  "author": "menachem",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^7.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
