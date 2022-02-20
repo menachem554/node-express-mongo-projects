@@ -59,22 +59,58 @@ const writeFilePro = (file, data) => {
 //     console.log(err);
 //   });
 
-// Implementing the functions above using 'async' and 'await'
+// Implementing the functions above using 'async' and 'await
+// to get 3 pictures of dogs and save the links to the file'
 const getDogPic = async () => {
   try {
     const data = await readFilePro(`${__dirname}/dog.txt`);
     console.log(`Breed: ${data}`);
 
-    const res = await superagent.get(
+    const res1Pro = superagent.get(
       `https://dog.ceo/api/breed/${data}/images/random`
     );
-    console.log(res.body.message);
 
-    await writeFilePro(`${__dirname}/dog-img.txt`, res.body.message);
+    const res2Pro = superagent.get(
+      `https://dog.ceo/api/breed/${data}/images/random`
+    );
+
+    const res3Pro = superagent.get(
+      `https://dog.ceo/api/breed/${data}/images/random`
+    );
+
+    const all = await Promise.all([res1Pro, res2Pro, res3Pro]);
+    const imgs = all.map((el) => el.body.message);
+
+    console.log(imgs);
+
+    await writeFilePro(`${__dirname}/dog-img.txt`, imgs.join('\n'));
     console.log('Random dog image saved to file');
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
+    throw err;
   }
+  return 'success🐕️';
 };
 
-getDogPic();
+// Implementing the functions above using 'then' and 'catch'
+// console.log('Started');
+// getDogPic()
+//   .then((x) => {
+//     console.log(x);
+//     console.log('Finished😎️');
+//   })
+//   .catch((err) => {
+//     console.log('ERROR😡');
+//   });
+
+// Implementing the functions above using 'async' and 'await'
+(async () => {
+  try {
+    console.log('Started');
+    const x = await getDogPic();
+    console.log(x);
+    console.log('Finished😎️');
+  } catch (err) {
+    console.log('ERROR😡');
+  }
+})();
