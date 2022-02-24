@@ -24,23 +24,23 @@ const superagent = require('superagent');
 // });
 
 // This is the result using promise and the async/await function
-const readFilePro = (file) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(file, 'utf8', (err, data) => {
-      if (err) return reject('File not found😢');
-      resolve(data);
-    });
-  });
-};
+// const readFilePro = (file) => {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile(file, 'utf8', (err, data) => {
+//       if (err) return reject('File not found😢');
+//       resolve(data);
+//     });
+//   });
+// };
 
-const writeFilePro = (file, data) => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(file, data, (err) => {
-      if (err) reject('Could not write file😓');
-      resolve('success');
-    });
-  });
-};
+// const writeFilePro = (file, data) => {
+//   return new Promise((resolve, reject) => {
+//     fs.writeFile(file, data, (err) => {
+//       if (err) reject('Could not write file😓');
+//       resolve('success');
+//     });
+//   });
+// };
 
 // Implementing the functions above using 'then' and 'catch'
 // readFilePro(`${__dirname}/dog.txt`)

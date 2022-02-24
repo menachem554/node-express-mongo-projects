@@ -1,0 +1,44 @@
+                                          mongo commands
+                                          --------------
+____________________________________________________________________________________                                         
+1) Switch to an existing db, or crate a new one
+   use name-of-db 
+____________________________________________________________________________________
+2) To insert one or mor document/s to collection
+db.collection-name.insertOne({filed: "filed"})
+db.collection-name.insertMany({filed: "filed"}, {filed: "filed"})
+____________________________________________________________________________________
+3) Find all documents in the collection
+db.collection-name.find() 
+____________________________________________________________________________________
+4) Find the document that this field is located
+db.collection-name.find({field: "field in the document"})
+____________________________________________________________________________________
+5) Find the document that has a field whose number is greater than ..
+db.collection-name.find({filed: {$gte: number}})
+____________________________________________________________________________________
+6) Find the document that has a field that the number is greater than .. &&
+   and there is also a field that the number is smaller than ..
+db.collection-name.find({filed: {$gt: number}, {filed: {$lt: number}})
+____________________________________________________________________________________
+7) Find the document that has a field that matches one of the following conditions.
+db.tours.find({ $or: [ {filed: {$gte: 500}}, {filed: {$gt: 400}} ] })
+____________________________________________________________________________________
+8) If you want to print from the document only a specific field
+db.tours.find({ $or: [ {price: {$gt: 500}}, {price: {$gt: 400}} ] }, {filed:1} )
+____________________________________________________________________________________
+9) To update one or many field/s in a document.
+** If the document is found by the filter, but does not have the field that needs to be changed, Mongo will create that filed
+db.collection-name.updateOne({field: "field in the document" }, {$set: {filed: ..} })
+db.collection-name.updateMany({field: "field in the document" }, {$set: {filed: ..} })
+________________________________________________________________________________________
+10) To replace one document or more
+db.collection-name.replaceOne({field: "field"}, {field: "field", field: ..})
+db.collection-name.replaceOne({field: "field"}, {field: "field", field: ..})
+________________________________________________________________________________________
+11) To delete one document or all document
+db.collection-name.deleteOne({field: "field"})
+db.collection-name.deleteOne({}) *(will delete all )
+
+
+                                      
