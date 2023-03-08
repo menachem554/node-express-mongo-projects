@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "globale": "^1.0.0",
+    "nodemon": "^2.0.19"
+  }
+}

@@ -1,4 +1,4 @@
-// How to exports a module from a file
+// How to exports a single module value
 
 //  Option 1: export the class  in the end of the file
 // class Calculator {
@@ -17,7 +17,7 @@
 
 // module.exports = Calculator;
 
-// Option 2: to export an object
+// Option 2: export directly the class
 module.exports = class {
   add(a, b) {
     return a + b;

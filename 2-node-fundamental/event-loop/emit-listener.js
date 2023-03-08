@@ -1,7 +1,7 @@
 const EventEmitter = require('events');
 const http = require('http');
 
-// Events can be triggered with the 'emit' and listening  with 'on'
+// Events can be triggered with the 'emit' and listening with 'on'
 class Sales extends EventEmitter {
   constructor() {
     super();
